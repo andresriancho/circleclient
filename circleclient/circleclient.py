@@ -1,5 +1,12 @@
 # -*- coding: utf-8 -*-
 
+"""
+clircleclient
+~~~~~~~~~~~~~
+
+This module provides main functionality.
+"""
+
 import json
 import requests
 
