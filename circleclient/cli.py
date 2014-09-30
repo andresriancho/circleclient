@@ -15,7 +15,7 @@ import circleclient
 def main():
     """Entry point for the application scipt."""
     parser = argparse.ArgumentParser(prog="ccl")
-    subparsers = parser.add_subparsers(help="todo help")
+    subparsers = parser.add_subparsers()
 
     parser_user = subparsers.add_parser(
         'user', help='List information about the user.')
@@ -23,10 +23,14 @@ def main():
     parser_projects = subparsers.add_parser(
         'projects', help='List all projects.')
 
-    parser_cache = subparsers.add_parser(
-        'cache', help='Clear cache for given project')
-    parser_cache.add_argument('username', type=str, help='Username')
-
+    parser_build = subparsers.add_parser(
+        'build', help='Build operations')
+    parser_build.add_argument(
+        'trigger', action='store', help="Trigger new build")
+    parser_build.add_argument(
+        '--username', '-u', action='store', help='Username')
+    parser_build.add_argument(
+        '--branch', '-b', action='store', help="Branch name")
 
 
 if __name__ == "__main__":
