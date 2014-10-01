@@ -5,11 +5,12 @@ circleclient.cli
 ~~~~~~~~~~~~~~~~
 
 This module provides the CLI interface to cicleclient.
+
 """
 
-
+import os
 import argparse
-import circleclient
+from circleclient import circleclient
 
 
 def main():
@@ -19,6 +20,8 @@ def main():
 
     parser_user = subparsers.add_parser(
         'user', help='List information about the user.')
+    parser_user.add_argument('--info', '-i', action='store_true',
+        default=False)
 
     parser_projects = subparsers.add_parser(
         'projects', help='List all projects.')
@@ -32,6 +35,10 @@ def main():
     parser_build.add_argument(
         '--branch', '-b', action='store', help="Branch name")
 
+    args = parser.parse_args()
 
-if __name__ == "__main__":
-    main()
+    client = circleclient.CircleClient(os.environ['API_TOKEN'])
+
+    if args.info:
+        print(client.user.info())
+

@@ -12,7 +12,6 @@ APP_NAME = 'circleclient'
 VERSION = '0.1.4'
 
 
-
 this_dir = os.path.abspath(os.path.dirname(__file__))
 
 with open(os.path.join(this_dir, 'README.rst'), encoding='utf-8') as f:
