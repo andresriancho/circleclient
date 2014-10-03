@@ -55,3 +55,7 @@ docs/_build/
 
 # Vim
 *.swp
+
+# cloud9 IDE
+.c9/
+
